@@ -18,7 +18,7 @@ import sqlalchemy as sa
 
 
 def _build_sync_url(async_url: str) -> str:
-    return async_url.replace("postgresql+asyncpg://", "postgresql://")
+    return async_url.replace("postgresql+asyncpg://", "postgresql+psycopg2://", 1)
 
 
 def reset(email: str, password: str) -> bool:

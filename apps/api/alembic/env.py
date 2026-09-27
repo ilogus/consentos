@@ -14,9 +14,7 @@ database_url = os.environ.get("DATABASE_URL")
 if database_url:
     # Alembic needs the synchronous driver. Name psycopg2 explicitly: since
     # SQLAlchemy 2.1 a bare "postgresql://" defaults to psycopg (v3).
-    database_url = database_url.replace(
-        "postgresql+asyncpg://", "postgresql+psycopg2://", 1
-    )
+    database_url = database_url.replace("postgresql+asyncpg://", "postgresql+psycopg2://", 1)
     config.set_main_option("sqlalchemy.url", database_url)
 
 # Set up Python logging from the config file
